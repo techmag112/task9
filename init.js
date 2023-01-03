@@ -5,19 +5,21 @@
 'use strict';
 window.addEventListener('DOMContentLoaded', function() {
 
-    const btnReset = document.querySelector('.btn_reset'),
-          btnUpdate = document.querySelector('.btn_next');
+    // Запоминаем селектор оболочки-слоя кнопок
+    const btn = document.querySelector('.card-counter');
 
     updateCard();
 
-    btnReset.addEventListener('click', () => {
-      clearCard(); 
-    });
-
-    btnUpdate.addEventListener('click', () => {
-      updateCard();
-    });
-    
+    // Добавляем на него общий обработчик по клику
+    btn.addEventListener('click', (event) => {
+      if (event.target.classList.contains('btn_next')) { 
+        updateCard();
+      } 
+      if (event.target.classList.contains('btn_reset')) { 
+        clearCard();
+      } 
+    }); 
+   
   function updateCard() {
       const initPerson = personGenerator.getPerson(),
           month = {
