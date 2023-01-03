@@ -138,8 +138,10 @@ const personGenerator = {
 
     randomProfession: function(gender) {
         if (gender == 'Мужчина') {
+            // Возвращаем одну из случайных профессий
             return this.randomValue(this.profession);  
         } else {
+            // Возвращаем случайную профессию, исключая запрещенные 
             return this.randomValue(this.profession, 15, 7);
         }  
         
